@@ -1,3 +1,5 @@
+let allMatches = [];
+
 //remove matches
 let removeMatches = (matches) => {
   for (let i = 0; i < matches.length; i++) {
@@ -10,12 +12,13 @@ let removeMatches = (matches) => {
       }
     }
   }
+  allMatches.length = 0;
 };
 
 //check for all matches
 let checkMatches = () => {
-  let allMatches = [];
-
+  allMatches = []
+  
   for (let i = 0; i < 62; i++) {
     let rowIndex = Math.trunc(i / width);
     let colCounter = 1;
@@ -45,7 +48,5 @@ let checkMatches = () => {
       allMatches.push({ element: i, length: colCounter, horizontal: false });
     }
   }
-
-  removeMatches(allMatches);
-  updateScore(allMatches);
+  return allMatches
 };

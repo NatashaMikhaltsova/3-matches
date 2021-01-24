@@ -19,11 +19,13 @@ let dragElements = () => {
       squareIdBeingDragged + 1,
       squareIdBeingDragged + width,
     ];
-
     let validMove = validMoves.includes(squareIdBeingReplaced);
-    if (squareIdBeingReplaced && validMove) {
+
+    checkMatches();
+
+    if (squareIdBeingReplaced && validMove && allMatches.length > 0) {
       squareIdBeingReplaced = null;
-    } else if (squareIdBeingReplaced && !validMove) {
+    } else if (squareIdBeingReplaced && !validMove || squareIdBeingReplaced && allMatches.length === 0) {
       squares[squareIdBeingReplaced].style.backgroundColor = colorBeginReplaced;
       squares[squareIdBeingDragged].style.backgroundColor = colorBeginDragged;
     } else {
