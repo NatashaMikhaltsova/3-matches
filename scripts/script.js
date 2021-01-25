@@ -4,11 +4,11 @@ const squares = [];
 let score = 0;
 const scoreDisplay = document.querySelector("#score");
 const firstRow = [0, 1, 2, 3, 4, 5, 6, 7];
-const fishColors = ["red", "yellow", "orange", "purple", "green", "blue"];
+const fruits = ["url(images/apple.svg)", "url(images/aubagine.svg)", "url(images/cherry.svg)", "url(images/cucumber.svg)", "url(images/lemons.svg)", "url(images/strawberry.svg)", "url(images/watermelon.svg)"];
 
 const generateRandomColor = (elem) => {
-  let randomColor = Math.floor(Math.random() * fishColors.length);
-  elem.style.backgroundColor = fishColors[randomColor];
+  let randomColor = Math.floor(Math.random() * fruits.length);
+  elem.style.backgroundImage = fruits[randomColor];
   return elem;
 };
 

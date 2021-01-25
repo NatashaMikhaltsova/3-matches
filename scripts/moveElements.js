@@ -1,13 +1,13 @@
 let moveDown = () => {
-  while (squares.some((elem) => elem.style.backgroundColor === "white")) {
+  while (squares.some((elem) => elem.style.backgroundImage === "")) {
     for (let i = 0; i < 64; i++) {
-      if (squares[i].style.backgroundColor === "white") {
+      if (squares[i].style.backgroundImage === "") {
         if (firstRow.includes(i)) {
           generateRandomColor(squares[i]);
         } else {
-          squares[i].style.backgroundColor =
-            squares[i - width].style.backgroundColor;
-          squares[i - width].style.backgroundColor = "white";
+          squares[i].style.backgroundImage =
+            squares[i - width].style.backgroundImage;
+          squares[i - width].style.backgroundImage = "";
         }
       }
     }

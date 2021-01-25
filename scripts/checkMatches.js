@@ -6,9 +6,9 @@ let removeMatches = (matches) => {
     let match = matches[i];
     for (let j = 0; j < match.length; j++) {
       if (match.horizontal) {
-        squares[match.element + j].style.backgroundColor = "white";
+        squares[match.element + j].style.backgroundImage = "";
       } else {
-        squares[match.element + j * width].style.backgroundColor = "white";
+        squares[match.element + j * width].style.backgroundImage = "";
       }
     }
   }
@@ -27,7 +27,7 @@ let checkMatches = () => {
     //search for matches in row
     while (
       Math.trunc((i + rowCounter) / width) === rowIndex &&
-      squares[i].style.backgroundColor === squares[i + rowCounter].style.backgroundColor
+      squares[i].style.backgroundImage === squares[i + rowCounter].style.backgroundImage
     ) {
       rowCounter++;
     }
@@ -39,7 +39,7 @@ let checkMatches = () => {
     //search for matches in column
     while (
       i + width * colCounter < 64 &&
-      squares[i].style.backgroundColor === squares[i + width * colCounter].style.backgroundColor
+      squares[i].style.backgroundImage === squares[i + width * colCounter].style.backgroundImage
     ) {
       colCounter++;
     }

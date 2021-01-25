@@ -5,7 +5,7 @@ let dragElements = () => {
   let squareIdBeingReplaced;
 
   let dragStart = (e) => {
-    colorBeginDragged = e.target.style.backgroundColor;
+    colorBeginDragged = e.target.style.backgroundImage;
     squareIdBeingDragged = parseInt(e.target.id);
   };
 
@@ -26,10 +26,10 @@ let dragElements = () => {
     if (squareIdBeingReplaced && validMove && allMatches.length > 0) {
       squareIdBeingReplaced = null;
     } else if (squareIdBeingReplaced && !validMove || squareIdBeingReplaced && allMatches.length === 0) {
-      squares[squareIdBeingReplaced].style.backgroundColor = colorBeginReplaced;
-      squares[squareIdBeingDragged].style.backgroundColor = colorBeginDragged;
+      squares[squareIdBeingReplaced].style.backgroundImage = colorBeginReplaced;
+      squares[squareIdBeingDragged].style.backgroundImage = colorBeginDragged;
     } else {
-      squares[squareIdBeingDragged].style.backgroundColor = squareIdBeingDragged;
+      squares[squareIdBeingDragged].style.backgroundImage = squareIdBeingDragged;
     }
   };
 
@@ -46,10 +46,10 @@ let dragElements = () => {
   };
 
   let dragDrop = (e) => {
-    colorBeginReplaced = e.target.style.backgroundColor;
+    colorBeginReplaced = e.target.style.backgroundImage;
     squareIdBeingReplaced = parseInt(e.target.id);
-    e.target.style.backgroundColor = colorBeginDragged;
-    squares[squareIdBeingDragged].style.backgroundColor = colorBeginReplaced;
+    e.target.style.backgroundImage = colorBeginDragged;
+    squares[squareIdBeingDragged].style.backgroundImage = colorBeginReplaced;
   };
   
   squares.forEach((square) => square.addEventListener("dragstart", dragStart));
