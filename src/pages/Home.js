@@ -1,19 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Game 3-matches</title>
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1"
-      crossorigin="anonymous"
-    />
-    <link rel="stylesheet" href="./css/style.css" />
-  </head>
-  <body>
-    <div class="preloader-container hide">
+import "../styles/style.css";
+
+const Home = () => { 
+  const view = `
+  <div class="preloader-container">
       <div class="loader">
         <div class="loader--dot"></div>
         <div class="loader--dot"></div>
@@ -78,15 +67,8 @@
         </form>
       </div>
     </div>
+  `;
+  return view;
+}
 
-    <script src="./scripts/script.js"></script>
-    <script src="./scripts/checkMatches.js"></script>
-    <script src="./scripts/dragElements.js"></script>
-    <script src="./scripts/checkMatchesExists.js"></script>
-    <script src="./scripts/moveElements.js"></script>
-    <script src="./scripts/updateScore.js"></script>
-    <script src="./scripts/createBoard.js"></script>
-    <script src="./scripts/preloader.js"></script>
-    <script src="./scripts/modal.js"></script>
-  </body>
-</html>
+export default Home;
