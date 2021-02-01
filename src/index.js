@@ -2,7 +2,7 @@ import router from "./routes";
 import "./styles/style.css";
 import getPreloader from "../src/components/preloader";
 import { getModal, startGame, closeModal } from "../src/components/modal";
-import {squares, allMatches, createBoard, checkMatches, checkMatchesExists, dragStart, dragEnd, dragDrop, dragEnter, dragLeave, dragOver, moveDown, updateScore, removeMatches, updateBoard} from "../src/components/game";
+import {squares, allMatches, count, createBoard, checkMatches, checkMatchesExists, dragStart, dragEnd, dragDrop, dragEnter, dragLeave, dragOver, moveDown, updateScore, removeMatches, updateBoard} from "../src/components/game";
 
 //Base layout
 document.body.innerHTML = `
@@ -40,17 +40,19 @@ window.addEventListener("load", () => {
     
   
    window.setInterval(() => {
-    /* if (!checkMatchesExists(squares)) {
+      if (!checkMatchesExists(squares)) {
       console.log("Ходов нет!");
       updateBoard();
-    } */
-    console.log(allMatches)
-    //checkMatches(allMatches);
-    //removeMatches(allMatches);
-    //moveDown();
-    //updateScore(allMatches);
-    //console.log(allMatches)
-  }, 3000); 
+    }  
+    
+    checkMatches(allMatches);
+    removeMatches(allMatches);
+    moveDown();
+    
+    updateScore(allMatches);
+    allMatches.length = 0;
+    
+  }, 1000); 
 });
 
 window.addEventListener("hashchange", () => {

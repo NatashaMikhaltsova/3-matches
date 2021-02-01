@@ -16,6 +16,7 @@ let colorBeginDragged;
   let colorBeginReplaced;
   let squareIdBeingDragged;
   let squareIdBeingReplaced;
+  let count = 0;
 
 //generate random fruits
 const generateRandomFruits = (elem) => {
@@ -68,6 +69,8 @@ let moveDown = () => {
 
 //check for all matches
 let checkMatches = (arr) => {
+  count++;
+  //console.log(arr.length)
   for (let i = 0; i < 62; i++) {
     let rowIndex = Math.trunc(i / width);
     let colCounter = 1;
@@ -83,6 +86,8 @@ let checkMatches = (arr) => {
     
     if (rowCounter > 2) {
       arr.push({ element: i, length: rowCounter, horizontal: true });
+      /* console.log(i + 'row push');
+      console.log(arr.length) */
     }
 
     //search for matches in column
@@ -95,9 +100,10 @@ let checkMatches = (arr) => {
 
     if (colCounter > 2) {
       arr.push({ element: i, length: colCounter, horizontal: false });
+      
     }
   }
-  console.log(allMatches)
+  //console.log('arr after check matches' + arr.length)
   return arr
 };
 
@@ -121,6 +127,7 @@ let checkMatchesExists = (squares) => {
   let currentElementColor;
   let nextElementColor;
   let bottomElementColor;
+  let virtualMatches = [];
   let matchesExists = false;
 
   for (let i = 0; i < 63; i++) {
@@ -130,10 +137,10 @@ let checkMatchesExists = (squares) => {
       nextElementColor = squares[i + 1].style.backgroundImage;
       squares[i].style.backgroundImage = nextElementColor;
       squares[i + 1].style.backgroundImage = currentElementColor;
-      checkMatches();
+      checkMatches(virtualMatches);
       squares[i].style.backgroundImage = currentElementColor;
       squares[i + 1].style.backgroundImage = nextElementColor;
-      if (allMatches.length > 0) {
+      if (virtualMatches.length > 0) {
         matchesExists = true;
         break;
       }
@@ -143,10 +150,10 @@ let checkMatchesExists = (squares) => {
       bottomElementColor = squares[i + width].style.backgroundImage;
       squares[i].style.backgroundImage = bottomElementColor;
       squares[i + width].style.backgroundImage = currentElementColor;
-      checkMatches();
+      checkMatches(virtualMatches);
       squares[i].style.backgroundImage = currentElementColor;
       squares[i + width].style.backgroundImage = bottomElementColor;
-      if (allMatches.length > 0) {
+      if (virtualMatches.length > 0) {
         matchesExists = true;
         break;
       }
@@ -179,12 +186,13 @@ let dragEnd = (e) => {
     squareIdBeingDragged + width,
   ];
   let validMove = validMoves.includes(squareIdBeingReplaced);
+  let dragArray = [];
 
-  checkMatches();
+  checkMatches(dragArray);
 
-  if (squareIdBeingReplaced && validMove && allMatches.length > 0) {
+  if (squareIdBeingReplaced && validMove && dragArray.length > 0) {
     squareIdBeingReplaced = null;
-  } else if (squareIdBeingReplaced && !validMove || squareIdBeingReplaced && allMatches.length === 0) {
+  } else if (squareIdBeingReplaced && !validMove || squareIdBeingReplaced && dragArray.length === 0) {
     squares[squareIdBeingReplaced].style.backgroundImage = colorBeginReplaced;
     squares[squareIdBeingDragged].style.backgroundImage = colorBeginDragged;
   } else {
@@ -208,6 +216,7 @@ let dragLeave = (e) => {
 
 //update score
 let updateScore = (matches) => {
+  //console.log(matches)
   const scoreDisplay = document.querySelector("#score");
   if (scoreDisplay && matches.length !== 0) {
     for (let i = 0; i < matches.length; i++) {
@@ -216,8 +225,8 @@ let updateScore = (matches) => {
       scoreDisplay.innerHTML = score;
     }
   }
-matches = [];
-  
+//matches = [];
+//console.log(matches)
 };
 
 
@@ -249,7 +258,7 @@ window.setInterval(() => {
   removeMatches(allMatches);
 }, 500); */
 
-export {squares, allMatches, createBoard, checkMatches, checkMatchesExists, dragStart, dragEnd, dragDrop, dragEnter, dragLeave, dragOver, moveDown, updateScore, removeMatches, updateBoard};
+export {squares, allMatches, count, createBoard, checkMatches, checkMatchesExists, dragStart, dragEnd, dragDrop, dragEnter, dragLeave, dragOver, moveDown, updateScore, removeMatches, updateBoard};
  
 
 
