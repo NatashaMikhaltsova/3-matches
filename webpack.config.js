@@ -3,10 +3,11 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const webpack = require('webpack');
 
+
 module.exports = {
-    entry: {
-        main: path.resolve(__dirname, './src/index.js'),
-    },
+    entry: ['babel-polyfill', path.resolve(__dirname, './src/index.js')],
+      
+
     output: {
       path: path.resolve(__dirname, './dist'),
       filename: '[name].bundle.js',
@@ -36,7 +37,7 @@ module.exports = {
           // шрифты и SVG
           {
             test: /\.(woff(2)?|eot|ttf|otf|svg|)$/,
-            type: 'asset/inline',
+            type: 'asset/inline'
           },
 
           // CSS, PostCSS, Sass

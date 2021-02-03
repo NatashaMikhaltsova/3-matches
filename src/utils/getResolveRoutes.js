@@ -1,5 +1,5 @@
 const getResolveRoutes = (route) => {
-  if(route.length<=5) {
+  if(route.length<=3) {
     let validationRoute = route === "/" ? route : "/:id";
     return validationRoute
   }

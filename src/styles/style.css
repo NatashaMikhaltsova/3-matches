@@ -19,8 +19,7 @@ header {
   justify-content: space-between;
   align-items: center;
   width: 100%;
-   background: black; 
-   opacity: 0.3;
+  background: rgba(101, 67, 33, 0.7); 
   box-shadow: 3px 3px 1px rgba(0, 0, 0, 0.05);
   padding: 5px 0;
   margin-bottom: 30px;
@@ -47,12 +46,19 @@ header {
   font-size: 30px;
 }
 
-#menu button {
+ul {
+  list-style: none;
+}
+
+#menu a {
   letter-spacing: 2px;
   font-weight: 600;
   margin: 0 10px;
   padding: 6px 20px;
   font-size: 1.3rem;
+  text-decoration: none;
+  outline: none;
+  color: #dc3545;
 }
 
 #menu button:last-child {
@@ -111,8 +117,8 @@ body {
 }
 
 .preloader-container {
-  height: 100vh;
-  width: 100vw;
+  height: 80vh;
+  width: 95vw;
   font-family: Helvetica;
   font-size: 30px;
 }
@@ -240,4 +246,20 @@ body {
 
 #regName {
   width: 100%;
+}
+
+#red-color{
+  color: red;
+}
+
+.scoresTable > div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.scoresTable > div > div {
+  border: 1px solid #a9a6a3;
+  padding: 10px;
+  width: 100px;
 }
