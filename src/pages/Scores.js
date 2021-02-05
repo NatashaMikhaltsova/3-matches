@@ -1,5 +1,4 @@
- import {addScores} from "../components/addScores";
-
+import {addScores} from "../components/addScores";
 
 const Scores = async () => {
   const scoresTable = await addScores();
@@ -10,10 +9,10 @@ const Scores = async () => {
           <div>Name</div>
           <div>Scores</div>
         </div>
-         ${scoresTable}
+        ${scoresTable}
       </div>
     </div>
-`;
+  `;
   return view;
 }
 

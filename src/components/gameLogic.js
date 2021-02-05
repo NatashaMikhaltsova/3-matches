@@ -11,12 +11,19 @@ let squares = [];
 let score = 0;
 const firstRow = [0, 1, 2, 3, 4, 5, 6, 7];
 let allMatches = [];
-const fruits = [`url(${apple})`, `url(${aubagine})`, `url(${cherry})`, `url(${cucumber})`, `url(${lemons})`, `url(${strawberry})`, `url(${watermelon})`];
+const fruits = [
+  `url(${apple})`,
+  `url(${aubagine})`,
+  `url(${cherry})`,
+  `url(${cucumber})`,
+  `url(${lemons})`,
+  `url(${strawberry})`,
+  `url(${watermelon})`,
+];
 let colorBeginDragged;
-  let colorBeginReplaced;
-  let squareIdBeingDragged;
-  let squareIdBeingReplaced;
-  let count = 0;
+let colorBeginReplaced;
+let squareIdBeingDragged;
+let squareIdBeingReplaced;
 
 //generate random fruits
 const generateRandomFruits = (elem) => {
@@ -25,10 +32,10 @@ const generateRandomFruits = (elem) => {
   return elem;
 };
 
-//Create Board
+//Create board that contains (width^2) elements. Each element can be draggable
 const createBoard = () => {
   const grid = document.querySelector(".grid");
-  if(grid) {
+  if (grid) {
     for (let i = 0; i < width ** 2; i++) {
       const square = document.createElement("div");
       square.setAttribute("draggable", true);
@@ -41,15 +48,15 @@ const createBoard = () => {
   }
 };
 
-//Update Board
+//All elements in board will contain another random image.
 const updateBoard = () => {
   for (let i = 0; i < width ** 2; i++) {
-    generateRandomFruits(squares[i])
+    generateRandomFruits(squares[i]);
   }
   return squares;
 };
 
-//Move top fruits down
+//Function searches for elements without images. In such cases top fruits will move down, and for the first row new images will be generated
 let moveDown = () => {
   const firstRow = [0, 1, 2, 3, 4, 5, 6, 7];
   while (squares.some((elem) => elem.style.backgroundImage === "")) {
@@ -67,10 +74,8 @@ let moveDown = () => {
   }
 };
 
-//check for all matches
+//Function iterates over all images and checks matches 3 or more elements in rows and columns. If matches found, they will be saved to array
 let checkMatches = (arr) => {
-  count++;
-  //console.log(arr.length)
   for (let i = 0; i < 62; i++) {
     let rowIndex = Math.trunc(i / width);
     let colCounter = 1;
@@ -79,35 +84,33 @@ let checkMatches = (arr) => {
     //search for matches in row
     while (
       Math.trunc((i + rowCounter) / width) === rowIndex &&
-      squares[i].style.backgroundImage === squares[i + rowCounter].style.backgroundImage
+      squares[i].style.backgroundImage ===
+        squares[i + rowCounter].style.backgroundImage
     ) {
       rowCounter++;
     }
-    
+
     if (rowCounter > 2) {
       arr.push({ element: i, length: rowCounter, horizontal: true });
-      /* console.log(i + 'row push');
-      console.log(arr.length) */
     }
 
     //search for matches in column
     while (
       i + width * colCounter < 64 &&
-      squares[i].style.backgroundImage === squares[i + width * colCounter].style.backgroundImage
+      squares[i].style.backgroundImage ===
+        squares[i + width * colCounter].style.backgroundImage
     ) {
       colCounter++;
     }
 
     if (colCounter > 2) {
       arr.push({ element: i, length: colCounter, horizontal: false });
-      
     }
   }
-  //console.log('arr after check matches' + arr.length)
-  return arr
+  return arr;
 };
 
-//remove matches
+//Function removes images from elements which were saved in array with matches
 let removeMatches = (matches) => {
   for (let i = 0; i < matches.length; i++) {
     let match = matches[i];
@@ -119,10 +122,9 @@ let removeMatches = (matches) => {
       }
     }
   }
-  //allMatches.length = 0;
 };
 
-//check that there is a match
+// Function iterates over all images. In each iteration it swaps adjacent elements and check that matches exists. If any virtual match exists, the function return 'true'
 let checkMatchesExists = (squares) => {
   let currentElementColor;
   let nextElementColor;
@@ -162,12 +164,13 @@ let checkMatchesExists = (squares) => {
   return matchesExists;
 };
 
-//drag elements logic
+//function saves id and image of draggable element (start drag element)
 let dragStart = (e) => {
   colorBeginDragged = e.target.style.backgroundImage;
   squareIdBeingDragged = parseInt(e.target.id);
 };
 
+//function that changes id and image of cells after drop
 let dragDrop = (e) => {
   colorBeginReplaced = e.target.style.backgroundImage;
   squareIdBeingReplaced = parseInt(e.target.id);
@@ -175,6 +178,7 @@ let dragDrop = (e) => {
   squares[squareIdBeingDragged].style.backgroundImage = colorBeginReplaced;
 };
 
+//Function checks that after element drop matches appear. If it's OK, 2 elements will be swapped. If it's not - draggable element will return on previous place.
 let dragEnd = (e) => {
   e.preventDefault();
 
@@ -192,7 +196,7 @@ let dragEnd = (e) => {
 
   if (squareIdBeingReplaced && validMove && dragArray.length > 0) {
     squareIdBeingReplaced = null;
-  } else if (squareIdBeingReplaced && !validMove || squareIdBeingReplaced && dragArray.length === 0) {
+  } else if ((squareIdBeingReplaced && !validMove) ||(squareIdBeingReplaced && dragArray.length === 0)) {
     squares[squareIdBeingReplaced].style.backgroundImage = colorBeginReplaced;
     squares[squareIdBeingDragged].style.backgroundImage = colorBeginDragged;
   } else {
@@ -212,11 +216,8 @@ let dragLeave = (e) => {
   e.preventDefault();
 };
 
-
-
-//update score
+//Update score on page
 let updateScore = (matches) => {
-  //console.log(matches)
   const scoreDisplay = document.querySelector("#score");
   if (scoreDisplay && matches.length !== 0) {
     for (let i = 0; i < matches.length; i++) {
@@ -225,43 +226,27 @@ let updateScore = (matches) => {
       scoreDisplay.innerHTML = score;
     }
   }
-//matches = [];
-//console.log(matches)
 };
 
+const clearScore = () => {
+  score = 0;
+}
 
-
-
-/* document.addEventListener("DOMContentLoaded", () => {
-  createBoard();
-  checkMatchesExists(squares);
-  dragElements();
-  squares.forEach((square) => square.addEventListener("dragstart", dragStart));
-  squares.forEach((square) => square.addEventListener("dragend", dragEnd));
-  squares.forEach((square) => square.addEventListener("dragover", dragOver));
-  squares.forEach((square) => square.addEventListener("dragenter", dragEnter));
-  squares.forEach((square) => square.addEventListener("dragleave", dragLeave));
-  squares.forEach((square) => square.addEventListener("drop", dragDrop));
-  if (!checkMatchesExists(squares)) {
-    console.log("Ходов нет!");
-  }
-});
-
-window.setInterval(() => {
-  if (!checkMatchesExists(squares)) {
-    console.log("Ходов нет!");
-    updateBoard();
-  }
-  moveDown();
-  checkMatches();
-  updateScore(allMatches);
-  removeMatches(allMatches);
-}, 500); */
-
-export {squares, allMatches, count, createBoard, checkMatches, checkMatchesExists, dragStart, dragEnd, dragDrop, dragEnter, dragLeave, dragOver, moveDown, updateScore, removeMatches, updateBoard};
- 
-
-
-
-
-
+ export {
+  squares,
+  allMatches,
+  createBoard,
+  checkMatches,
+  checkMatchesExists,
+  dragStart,
+  dragEnd,
+  dragDrop,
+  dragEnter,
+  dragLeave,
+  dragOver,
+  moveDown,
+  updateScore,
+  removeMatches,
+  updateBoard,
+  clearScore
+} ;

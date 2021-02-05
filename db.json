@@ -8,7 +8,7 @@
     {
       "id": 2,
       "name": "Nikita",
-      "score": "70"
+      "score": "211"
     },
     {
       "id": 3,
@@ -29,6 +29,311 @@
       "id": 6,
       "name": "Max",
       "score": "80"
+    },
+    {
+      "name": "f",
+      "score": "6",
+      "id": 7
+    },
+    {
+      "name": "f",
+      "score": "9",
+      "id": 8
+    },
+    {
+      "name": "f",
+      "score": "19",
+      "id": 9
+    },
+    {
+      "name": "ff",
+      "score": "0",
+      "id": 10
+    },
+    {
+      "name": "g",
+      "score": "0",
+      "id": 11
+    },
+    {
+      "name": "g",
+      "score": "0",
+      "id": 12
+    },
+    {
+      "name": "g",
+      "score": "0",
+      "id": 13
+    },
+    {
+      "name": "f",
+      "score": "3",
+      "id": 14
+    },
+    {
+      "name": "",
+      "score": "0",
+      "id": 15
+    },
+    {
+      "name": "",
+      "score": "10",
+      "id": 16
+    },
+    {
+      "name": "",
+      "score": "22",
+      "id": 17
+    },
+    {
+      "name": "f",
+      "score": "40",
+      "id": 18
+    },
+    {
+      "name": "f",
+      "score": "12",
+      "id": 19
+    },
+    {
+      "name": "f",
+      "score": "40",
+      "id": 20
+    },
+    {
+      "name": "f",
+      "score": "20",
+      "id": 21
+    },
+    {
+      "name": "f",
+      "score": "29",
+      "id": 22
+    },
+    {
+      "name": "f",
+      "score": "35",
+      "id": 23
+    },
+    {
+      "name": "f",
+      "score": "53",
+      "id": 24
+    },
+    {
+      "name": "f",
+      "score": "53",
+      "id": 25
+    },
+    {
+      "name": "f",
+      "score": "53",
+      "id": 26
+    },
+    {
+      "name": "f",
+      "score": "53",
+      "id": 27
+    },
+    {
+      "name": "f",
+      "score": "53",
+      "id": 28
+    },
+    {
+      "name": "f",
+      "score": "53",
+      "id": 29
+    },
+    {
+      "name": "f",
+      "score": "59",
+      "id": 30
+    },
+    {
+      "name": "",
+      "score": "0",
+      "id": 31
+    },
+    {
+      "name": "f",
+      "score": "39",
+      "id": 32
+    },
+    {
+      "name": "",
+      "score": "0",
+      "id": 33
+    },
+    {
+      "name": "",
+      "score": "0",
+      "id": 34
+    },
+    {
+      "name": "",
+      "score": "0",
+      "id": 35
+    },
+    {
+      "name": "",
+      "score": "9",
+      "id": 36
+    },
+    {
+      "name": "",
+      "score": "0",
+      "id": 37
+    },
+    {
+      "name": "",
+      "score": "0",
+      "id": 38
+    },
+    {
+      "name": "",
+      "score": "0",
+      "id": 39
+    },
+    {
+      "name": "",
+      "score": "0",
+      "id": 40
+    },
+    {
+      "name": "g",
+      "score": "9",
+      "id": 41
+    },
+    {
+      "name": "g",
+      "score": "13",
+      "id": 42
+    },
+    {
+      "name": "g",
+      "score": "9",
+      "id": 43
+    },
+    {
+      "name": "",
+      "score": "0",
+      "id": 44
+    },
+    {
+      "name": "",
+      "score": "3",
+      "id": 45
+    },
+    {
+      "name": "f",
+      "score": "6",
+      "id": 46
+    },
+    {
+      "name": "f",
+      "score": "6",
+      "id": 47
+    },
+    {
+      "name": "",
+      "score": "6",
+      "id": 48
+    },
+    {
+      "name": "f",
+      "score": "6",
+      "id": 49
+    },
+    {
+      "name": "",
+      "score": "6",
+      "id": 50
+    },
+    {
+      "name": "",
+      "score": "19",
+      "id": 51
+    },
+    {
+      "name": "",
+      "score": "6",
+      "id": 52
+    },
+    {
+      "name": "",
+      "score": "0",
+      "id": 53
+    },
+    {
+      "name": "f",
+      "score": "6",
+      "id": 54
+    },
+    {
+      "name": "",
+      "score": "3",
+      "id": 55
+    },
+    {
+      "name": "",
+      "score": "6",
+      "id": 56
+    },
+    {
+      "name": "",
+      "score": "3",
+      "id": 57
+    },
+    {
+      "name": "",
+      "score": "3",
+      "id": 58
+    },
+    {
+      "name": "",
+      "score": "0",
+      "id": 59
+    },
+    {
+      "name": "",
+      "score": "6",
+      "id": 60
+    },
+    {
+      "name": "",
+      "score": "3",
+      "id": 61
+    },
+    {
+      "name": "f",
+      "score": "0",
+      "id": 62
+    },
+    {
+      "name": "",
+      "score": "9",
+      "id": 63
+    },
+    {
+      "name": "f",
+      "score": "12",
+      "id": 64
+    },
+    {
+      "name": "f",
+      "score": "6",
+      "id": 65
+    },
+    {
+      "name": "f",
+      "score": "6",
+      "id": 66
+    },
+    {
+      "name": "g",
+      "score": "0",
+      "id": 67
     }
   ]
 }

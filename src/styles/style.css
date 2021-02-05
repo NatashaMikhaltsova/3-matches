@@ -12,6 +12,7 @@
   width: 100%;
   max-width: 1600px;
   padding: 0 10px;
+  color: #3a3a3a;
 }
 
 header {
@@ -19,16 +20,16 @@ header {
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  background: rgba(101, 67, 33, 0.7); 
+  background: rgba(165, 121, 76, 0.5); 
   box-shadow: 3px 3px 1px rgba(0, 0, 0, 0.05);
   padding: 5px 0;
-  margin-bottom: 30px;
+  margin-bottom: 10px;
 }
 
 .title {
   display: flex;
   float: left;
-  color: #dc3545;
+  color: #3a3a3a;
   height: 40px;
   margin: 5px 30px;
   text-shadow: 2px 2px 1px rgba(0, 0, 0, 0.4);
@@ -55,10 +56,11 @@ ul {
   font-weight: 600;
   margin: 0 10px;
   padding: 6px 20px;
-  font-size: 1.3rem;
+  font-size: 1.5rem;
   text-decoration: none;
   outline: none;
-  color: #dc3545;
+  color: #3a3a3a;
+  text-shadow: 2px 2px 1px rgba(0, 0, 0, 0.4);
 }
 
 #menu button:last-child {
@@ -94,6 +96,16 @@ body {
 }
 
 .score-board {
+  display: flex;
+  align-self: center;
+  justify-content: center;
+}
+.user-board {
+  display: flex;
+  align-self: center;
+  justify-content: right;
+}
+.timer-board {
   display: flex;
   align-self: center;
   justify-content: center;
@@ -235,7 +247,6 @@ body {
 }
 
 .modal-footer {
-  
   border: none;
   padding: 10px 10px;
 }
@@ -262,4 +273,7 @@ body {
   border: 1px solid #a9a6a3;
   padding: 10px;
   width: 100px;
+}
+.user-board {
+  color: #3a3a3a;
 }
