@@ -42,11 +42,21 @@ const startGame = (e) => {
 
   if (regNameSelector) {
     if (!regNameValue && regNameSelector.previousSibling.id !== "red-color") {
-      warning(regNameSelector.id, "red-color", "Please, use alphanumeric symbols!");
-    } else if (regNameValue && regNameSelector.previousSibling.id !== "red-color") {
+      warning(
+        regNameSelector.id,
+        "red-color",
+        "Please, use alphanumeric symbols!"
+      );
+    } else if (
+      regNameValue &&
+      regNameSelector.previousSibling.id !== "red-color"
+    ) {
       hideModal();
       window.location.hash = "/game";
-    } else if (regNameValue && regNameSelector.previousSibling.id === "red-color") {
+    } else if (
+      regNameValue &&
+      regNameSelector.previousSibling.id === "red-color"
+    ) {
       regNameSelector.previousSibling.remove();
       hideModal();
       window.location.hash = "/game";
@@ -60,8 +70,10 @@ const closeModal = (e) => {
 
   e.preventDefault();
   e.stopImmediatePropagation();
-  
-  if (modal && modal.classList.contains("show-modal-content") &&
+
+  if (
+    modal &&
+    modal.classList.contains("show-modal-content") &&
     e.target.id === "closeBtn"
   ) {
     hideModal();

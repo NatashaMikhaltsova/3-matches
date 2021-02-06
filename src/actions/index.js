@@ -4,19 +4,13 @@ import getPreloader from "../components/preloader";
 import { getModal, startGame, closeModal } from "../components/modal";
 import {
   squares,
-  allMatches,
   createBoard,
-  checkMatches,
-  checkMatchesExists,
   dragStart,
   dragEnd,
   dragDrop,
   dragEnter,
   dragLeave,
   dragOver,
-  moveDown,
-  updateScore,
-  removeMatches,
   updateBoard,
 } from "../components/gameLogic";
 import { setTimer, stopTimer } from "../components/timer";
@@ -46,7 +40,6 @@ const getContent = async () => {
   if (newGameBtn && submitForm && closeButton) {
     newGameBtn.addEventListener("click", (e) => {
       getModal(e);
-      //stopTimer();
     });
     submitForm.addEventListener("submit", (e) => {
       startGame(e);

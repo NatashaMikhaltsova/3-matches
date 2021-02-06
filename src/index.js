@@ -1,5 +1,4 @@
 import {getContent} from "./actions";
-import {stopTimer} from "./components/timer"
 
 //Base layout
 document.body.innerHTML = `

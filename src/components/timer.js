@@ -7,14 +7,7 @@ import {
   updateScore,
   removeMatches,
   updateBoard,
-  dragStart,
-  dragEnd,
-  dragDrop,
-  dragEnter,
-  dragLeave,
-  dragOver,
-  clearScore,
-  createBoard,
+  clearScore
 } from "../components/gameLogic";
 import { postAccount } from "../utils/getAccounts";
 
@@ -55,13 +48,8 @@ const updateGame = () => {
   }
 
   checkMatches(allMatches);
-
-  
   removeMatches(allMatches);
-  
-
   moveDown();
-
   updateScore(allMatches);
   allMatches.length = 0;
 };
@@ -70,7 +58,6 @@ const setTimer = () => {
   if (timerThreeMin) {
     stopTimer();
   }
-  
 
   beginTimeStamp = Math.floor(Date.now() / 1000);
   endTimeStamp = beginTimeStamp + 3 * 60;
