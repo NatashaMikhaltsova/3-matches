@@ -28,9 +28,8 @@ const stopTimer = () => {
   let userName = document.querySelector("#userName");
   let userScore = document.querySelector("#score");
   if ((userName, userScore)) {
-    postAccount(userName.innerText.trim(), userScore.innerText);
+    postAccount(userName.innerText.trim(), parseInt(userScore.innerText));
   }
-  console.log('stop')
 };
 
 const updateGame = () => {
@@ -40,13 +39,6 @@ const updateGame = () => {
     alert("No moves!");
     updateBoard();
   }
-
-  squares.forEach((square) => square.addEventListener("dragstart", dragStart));
-  squares.forEach((square) => square.addEventListener("dragend", dragEnd));
-  squares.forEach((square) => square.addEventListener("dragover", dragOver));
-  squares.forEach((square) => square.addEventListener("dragenter", dragEnter));
-  squares.forEach((square) => square.addEventListener("dragleave", dragLeave));
-  squares.forEach((square) => square.addEventListener("drop", dragDrop));
 
   secRemaining = endTimeStamp - Math.floor(Date.now() / 1000);
   if (secRemaining < 1) {
@@ -61,9 +53,9 @@ const updateGame = () => {
       minRemaining < 10 ? `0${minRemaining}` : minRemaining
     }:${currentSec < 10 ? `0${currentSec}` : currentSec}`;
   }
-  console.log('before'+ allMatches)
+
   checkMatches(allMatches);
-  console.log('after'+ allMatches)
+
   
   removeMatches(allMatches);
   
@@ -78,13 +70,12 @@ const setTimer = () => {
   if (timerThreeMin) {
     stopTimer();
   }
+  
 
   beginTimeStamp = Math.floor(Date.now() / 1000);
   endTimeStamp = beginTimeStamp + 3 * 60;
   clearScore();
-  createBoard();
-  //updateBoard();
   timerThreeMin = setInterval(updateGame, 1000);
 };
 
-export { timerThreeMin, setTimer, stopTimer };
+export { setTimer, stopTimer };

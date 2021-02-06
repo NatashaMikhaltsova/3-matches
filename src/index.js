@@ -26,8 +26,4 @@ document.body.innerHTML = `
 `;
 
 window.addEventListener("load", getContent);
-window.addEventListener("hashchange", () => {
-  //stopTimer();
-  getContent();
-  
-});
+window.addEventListener("hashchange",getContent);

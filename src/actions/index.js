@@ -29,35 +29,14 @@ const getContent = async () => {
   setTimeout(getPreloader, 2000);
 
   //displayGame
-  //createBoard();
-  if (squares.length > 0) {
-    if (!checkMatchesExists(squares)) {
-      alert("No moves!");
-      updateBoard();
-    }
-    //Drag&Drop
-    squares.forEach((square) =>
-      square.addEventListener("dragstart", dragStart)
-    );
-    squares.forEach((square) => square.addEventListener("dragend", dragEnd));
-    squares.forEach((square) => square.addEventListener("dragover", dragOver));
-    squares.forEach((square) =>
-      square.addEventListener("dragenter", dragEnter)
-    );
-    squares.forEach((square) =>
-      square.addEventListener("dragleave", dragLeave)
-    );
-    squares.forEach((square) => square.addEventListener("drop", dragDrop));
+  createBoard();
 
-    checkMatches(allMatches);
-
-    removeMatches(allMatches);
-    moveDown();
-
-    updateScore(allMatches);
-    allMatches.length = 0;
-  }
-  console.log("load");
+  squares.forEach((square) => square.addEventListener("dragstart", dragStart));
+  squares.forEach((square) => square.addEventListener("dragend", dragEnd));
+  squares.forEach((square) => square.addEventListener("dragover", dragOver));
+  squares.forEach((square) => square.addEventListener("dragenter", dragEnter));
+  squares.forEach((square) => square.addEventListener("dragleave", dragLeave));
+  squares.forEach((square) => square.addEventListener("drop", dragDrop));
 
   //Show modal
   const newGameBtn = document.querySelector("#newGame");
@@ -67,14 +46,13 @@ const getContent = async () => {
   if (newGameBtn && submitForm && closeButton) {
     newGameBtn.addEventListener("click", (e) => {
       getModal(e);
-      stopTimer();
+      //stopTimer();
     });
     submitForm.addEventListener("submit", (e) => {
       startGame(e);
-      /* if (squares.length > 0) {
+       if (squares.length > 0) {
         updateBoard();
-      } */
-      
+      } 
       setTimer();
     });
     closeButton.addEventListener("click", (e) => {

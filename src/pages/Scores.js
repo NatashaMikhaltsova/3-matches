@@ -5,7 +5,8 @@ const Scores = async () => {
   const view = `
     <div class="container">
       <div class="scoresTable">
-        <div>
+        <div class="scores-title">
+          <div>Place</div>
           <div>Name</div>
           <div>Scores</div>
         </div>

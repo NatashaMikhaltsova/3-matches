@@ -42,7 +42,11 @@ const createBoard = () => {
       square.setAttribute("id", i);
       grid.appendChild(square);
       generateRandomFruits(square);
-      squares.push(square);
+      if (squares.length === width ** 2) {
+        squares[i] = square
+      }else {
+        squares.push(square);
+      }
     }
     return squares;
   }
