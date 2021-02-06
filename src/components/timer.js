@@ -60,7 +60,7 @@ const setTimer = () => {
   }
 
   beginTimeStamp = Math.floor(Date.now() / 1000);
-  endTimeStamp = beginTimeStamp + 3 * 60;
+  endTimeStamp = beginTimeStamp + 60;
   clearScore();
   timerThreeMin = setInterval(updateGame, 1000);
 };
